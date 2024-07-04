@@ -1,28 +1,44 @@
 import { defineConfig } from 'vitepress'
+import { generateSidebar } from 'vitepress-sidebar'
+
+const vitepressSidebarOptions = {
+  documentRootPath: './docs'
+};
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Docs YNU",
-  description: "A VitePress Site",
+  title: "Developer docs",
+  description: "The official developer documentation for YNU.",
   themeConfig: {
+    logo: "/logo.png",
+    siteTitle: "Developer docs",
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'API', link: '/api/' }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: generateSidebar(vitepressSidebarOptions),
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+    ],
+
+    // local search
+    search: {
+      provider: 'local',
+    },
+
+    // footer
+    footer: {
+      message: 'Powered by VitePress',
+      copyright: 'Copyright © 2024 YNU',
+    },
+
+    // edit link
+    editLink: {
+      pattern: 'https://github.com/ynu/docs/edit/main/docs/:path',
+      text: 'Edit this page on GitHub',
+    },
   }
 })
