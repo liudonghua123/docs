@@ -6,11 +6,12 @@ layout: home
 import { onMounted } from "vue";
 import SwaggerUI from "swagger-ui";
 import "swagger-ui/dist/swagger-ui.css";
+import url from "./rs-api.yaml?url"
 
 onMounted(() => {
   SwaggerUI({
     dom_id: "#swagger",
-    url: './rs-api.yaml'
+    url,
   });
 });
 </script>
