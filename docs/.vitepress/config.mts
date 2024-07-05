@@ -5,8 +5,12 @@ const vitepressSidebarOptions = {
   documentRootPath: './docs'
 };
 
+// @ts-ignore
+const { BASE: base = '/' } = process.env
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base,
   title: "Developer docs",
   description: "The official developer documentation for YNU.",
   themeConfig: {
