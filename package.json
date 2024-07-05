@@ -7,7 +7,6 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "vite-plugin-static-copy": "^1.0.6",
     "vitepress": "^1.2.3",
     "vitepress-sidebar": "^1.23.2"
   },

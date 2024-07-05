@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 import { generateSidebar } from 'vitepress-sidebar'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const vitepressSidebarOptions = {
   documentRootPath: './docs'
@@ -45,15 +44,5 @@ export default defineConfig({
       pattern: 'https://github.com/ynu/docs/edit/main/docs/:path',
       text: 'Edit this page on GitHub',
     },
-  },
-  vite: {
-    assetsInclude: ['**/*.yaml', '**/*.yml'],
-    plugins: [
-      viteStaticCopy({
-        targets: [
-          { src: 'api/*.yaml', dest: 'api/' }
-        ]
-      })
-    ]
   }
 })
