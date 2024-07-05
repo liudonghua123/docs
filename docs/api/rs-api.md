@@ -1,15 +1,16 @@
+---
+layout: home
+---
 
 <script setup>
 import { onMounted } from "vue";
 import SwaggerUI from "swagger-ui";
 import "swagger-ui/dist/swagger-ui.css";
 
-import spec from '../openapis/rs-api.json'
-
 onMounted(() => {
   SwaggerUI({
     dom_id: "#swagger",
-    spec: spec, // url: './openapis/rs-api.json',
+    url: './rs-api.yaml'
   });
 });
 </script>
