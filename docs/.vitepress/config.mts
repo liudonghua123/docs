@@ -1,12 +1,16 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from 'vitepress-sidebar'
+import { generateSidebar } from '@liudonghua123/vitepress-sidebar'
 
 const vitepressSidebarOptions = {
-  documentRootPath: './docs'
+  documentRootPath: './docs',
+  useTitleFromFrontmatter: true,
+  frontmatterTitleFieldName: 'sidebar_title',
 };
 
 // @ts-ignore
 const { BASE: base = '/' } = process.env
+
+const sidebar = generateSidebar(vitepressSidebarOptions);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -22,7 +26,7 @@ export default defineConfig({
       { text: 'API', link: '/api/' }
     ],
 
-    sidebar: generateSidebar(vitepressSidebarOptions),
+    sidebar,
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }

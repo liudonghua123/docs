@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "vitepress": "^1.2.3",
-    "vitepress-sidebar": "^1.23.2"
+    "@liudonghua123/vitepress-sidebar": "^1.23.3"
   },
   "dependencies": {
     "swagger-ui": "^5.17.14"
