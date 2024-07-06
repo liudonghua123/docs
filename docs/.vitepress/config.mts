@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { generateSidebar } from '@liudonghua123/vitepress-sidebar'
+import preserveFilesPlugin from 'vite-plugin-preserve-files';
 
 const vitepressSidebarOptions = {
   documentRootPath: './docs',
@@ -48,5 +49,12 @@ export default defineConfig({
       pattern: 'https://github.com/ynu/docs/edit/main/docs/:path',
       text: 'Edit this page on GitHub',
     },
+  },
+  vite: {
+    plugins: [
+      preserveFilesPlugin({
+        fileTypes: ['.yaml', '.yml'] // Add any file extensions you want to copy
+      })
+    ],
   }
 })
