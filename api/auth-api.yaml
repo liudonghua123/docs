@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: 认证
+  description: ''
+  version: 1.0.0
+tags:
+  - name: 认证
+paths:
+  /gen_token:
+    get:
+      summary: 获得apisix的token
+      deprecated: false
+      description: 通过当前接口获取token, 请求接口时在header中通过Authorization字段携带token, 过期时间为1天
+      tags:
+        - 认证
+      parameters:
+        - name: key
+          in: query
+          description: ''
+          required: false
+          example: '{{key}}'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                '1':
+                  summary: 成功示例
+                  value: >-
+                    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJlZTI1OTMwYzk0NjI0YTU3ZmY1NzMwNzQ3YTUyZjc4NCIsImV4cCI6MTcxODc4NDYxM30.A0V-f99nss18twxOFdBTd1rkyVmoqpUN0HhIJ3cj_SI
+      security:
+        - apikey-header-Authorization: []
+#components:
+#  schemas: {}
+#  securitySchemes:
+#    apikey-header-Authorization:
+#      type: apiKey
+#      in: header
+#      name: Authorization
+servers:
+  - url: 'https://api.ynu.edu.cn'
+    description: 服务地址

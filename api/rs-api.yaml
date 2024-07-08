@@ -1,11 +1,10 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
-  title: 接口文档
+  title: 人事系统
   description: ''
   version: 1.0.0
 tags:
   - name: 人事-rs
-  - name: 人事
 paths:
   /v1/rs/list_jzg:
     get:
@@ -41,16 +40,83 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  XM:
+                    type: string
+                    title: 姓名
+                  ZGH:
+                    type: string
+                    title: 职工号
+                required:
+                  - XM
+                  - ZGH
               examples:
                 '1':
                   summary: 成功示例
                   value:
                     data:
-                      - XM: 苏国明
-                        ZGH: '20050029'
-                      - XM: 梁景祥
-                        ZGH: '20050031'
+                      - XM: XM
+                        ZGH: ZGH
+                      - XM: XM
+                        ZGH: ZGH
+                    msg: null
+                    success: true
+      security:
+        - apikey-header-Authorization: []
+  /v1/rs/lis_xpxg:
+    get:
+      summary: 获取校聘校管人员列表
+      deprecated: false
+      description: 获取校聘校管人员列表
+      tags:
+        - 人事-rs
+      parameters:
+        - name: dep
+          in: query
+          description: 单位
+          required: false
+          example: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  XM:
+                    type: string
+                    title: 姓名
+                  DEP:
+                    type: string
+                    title: 单位
+                  DQZTDM:
+                    type: string
+                    title: 当前状态代码
+                  ZGH:
+                    type: string
+                    title: 职工号
+                  YRFSDM:
+                    type: string
+                    title: 用人方式代码
+                required:
+                  - XM
+                  - DEP
+                  - DQZTDM
+                  - ZGH
+                  - YRFSDM
+              examples:
+                '1':
+                  summary: 成功示例
+                  value:
+                    data:
+                      - XM: ''
+                        DEP: '2012'
+                        DQZTDM: '22'
+                        ZGH: ''
+                        YRFSDM: '101'
                     msg: null
                     success: true
       security:
@@ -81,30 +147,58 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  YXDM:
+                    type: string
+                    title: 院系代码
+                  MZDM:
+                    type: string
+                    title: 民族代码
+                  XM:
+                    type: string
+                    title: 姓名
+                  ZZMMDM:
+                    type: string
+                    title: 政治面貌代码
+                  DQZTDM:
+                    type: string
+                    title: 当前状态代码
+                  ZGH:
+                    type: string
+                    title: 职工号
+                  YRFSDM:
+                    type: string
+                    title: 用人方式代码
+                  ZGXLDM:
+                    type: string
+                    title: 最高学历代码
+                  ZYJSZWJBDM:
+                    type: string
+                    title: 专业技术职务级别代码
+                required:
+                  - YXDM
+                  - MZDM
+                  - XM
+                  - ZZMMDM
+                  - DQZTDM
+                  - ZGH
+                  - YRFSDM
+                  - ZGXLDM
+                  - ZYJSZWJBDM
               examples:
                 '1':
                   summary: 成功示例
                   value:
                     data:
-                      - YXDM: '3004'
-                        MZDM: '01'
-                        XM: 李莹
-                        ZZMMDM: '01'
-                        DQZTDM: '22'
-                        ZGH: '20150047'
-                        YRFSDM: '101'
-                        ZGXLDM: '14'
-                        ZYJSZWJBDM: '420'
-                      - YXDM: '3004'
-                        MZDM: '01'
-                        XM: 张景深
-                        ZZMMDM: '13'
-                        DQZTDM: '22'
-                        ZGH: '20234011'
-                        YRFSDM: '202'
-                        ZGXLDM: '21'
-                        ZYJSZWJBDM: null
+                      - YXDM: YXDM
+                        MZDM: MZDM
+                        XM: XM
+                        ZZMMDM: ZZMMDM
+                        DQZTDM: DQZTDM
+                        ZGH: ZGH
+                        YRFSDM: YRFSDM
+                        ZGXLDM: ZGXLDM
+                        ZYJSZWJBDM: ZYJSZWJBDM
                     msg: null
                     success: true
       security:
@@ -119,7 +213,7 @@ paths:
       parameters:
         - name: dm
           in: query
-          description: 职工号
+          description: 民族代码
           required: false
           example: '33'
           schema:
@@ -131,7 +225,16 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  MC:
+                    type: string
+                    title: 名称
+                  DM:
+                    type: string
+                    title: 代码
+                required:
+                  - MC
+                  - DM
               examples:
                 '1':
                   summary: 成功示例
@@ -153,7 +256,7 @@ paths:
       parameters:
         - name: dm
           in: query
-          description: 职工号
+          description: 政治面貌代码
           required: false
           example: '13'
           schema:
@@ -165,7 +268,16 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  MC:
+                    type: string
+                    title: 名称
+                  DM:
+                    type: string
+                    title: 代码
+                required:
+                  - MC
+                  - DM
               examples:
                 '1':
                   summary: 成功示例
@@ -187,7 +299,7 @@ paths:
       parameters:
         - name: dm
           in: query
-          description: 职工号
+          description: 院系代码
           required: false
           example: '1001'
           schema:
@@ -214,7 +326,16 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  MC:
+                    type: string
+                    title: 代码
+                  DM:
+                    type: string
+                    title: 名称
+                required:
+                  - MC
+                  - DM
               examples:
                 '1':
                   summary: 成功示例
@@ -236,7 +357,7 @@ paths:
       parameters:
         - name: dm
           in: query
-          description: 职工号
+          description: 当前状态代码
           required: false
           example: '01'
           schema:
@@ -248,7 +369,16 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  MC:
+                    type: string
+                    title: 代码
+                  DM:
+                    type: string
+                    title: 名称
+                required:
+                  - MC
+                  - DM
               examples:
                 '1':
                   summary: 成功示例
@@ -270,7 +400,7 @@ paths:
       parameters:
         - name: dm
           in: query
-          description: 职工号
+          description: 用人方式代码
           required: false
           example: '214'
           schema:
@@ -282,14 +412,23 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  MC:
+                    type: string
+                    title: 代码
+                  DM:
+                    type: string
+                    title: 名称
+                required:
+                  - MC
+                  - DM
               examples:
                 '1':
                   summary: 成功示例
                   value:
                     data:
-                      - MC: 计划生育历史数据
-                        DM: '214'
+                      - MC: 事业编制
+                        DM: '101'
                     msg: null
                     success: true
       security:
@@ -304,9 +443,9 @@ paths:
       parameters:
         - name: dm
           in: query
-          description: 职工号
+          description: 学历代码
           required: false
-          example: '63'
+          example: '14'
           schema:
             type: string
       responses:
@@ -316,14 +455,23 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  MC:
+                    type: string
+                    title: 名称
+                  DM:
+                    type: string
+                    title: 代码
+                required:
+                  - MC
+                  - DM
               examples:
                 '1':
                   summary: 成功示例
                   value:
                     data:
-                      - MC: 普通高中肄业
-                        DM: '63'
+                      - MC: 硕士研究生毕业
+                        DM: '14'
                     msg: null
                     success: true
       security:
@@ -338,7 +486,7 @@ paths:
       parameters:
         - name: dm
           in: query
-          description: 职工号
+          description: 专业技术职务或党政职务代码
           required: false
           example: '121'
           schema:
@@ -350,7 +498,20 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  MC:
+                    type: string
+                    title: 名称
+                  LS:
+                    type: string
+                    title: 类属
+                  DM:
+                    type: string
+                    title: 代码
+                required:
+                  - MC
+                  - LS
+                  - DM
               examples:
                 '1':
                   summary: 成功示例
@@ -363,37 +524,6 @@ paths:
                     success: true
       security:
         - apikey-header-Authorization: []
-  /gen_token:
-    get:
-      summary: 获得apisix的token
-      deprecated: false
-      description: 过期时间为1天
-      tags:
-        - 人事-rs
-        - 人事
-      parameters:
-        - name: key
-          in: query
-          description: ''
-          required: false
-          example: '{{key}}'
-          schema:
-            type: string
-      responses:
-        '200':
-          description: 成功
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-              examples:
-                '1':
-                  summary: 成功示例
-                  value: >-
-                    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJlZTI1OTMwYzk0NjI0YTU3ZmY1NzMwNzQ3YTUyZjc4NCIsImV4cCI6MTcxODc4NDYxM30.A0V-f99nss18twxOFdBTd1rkyVmoqpUN0HhIJ3cj_SI
-      security:
-        - apikey-header-Authorization: []
 components:
   schemas: {}
   securitySchemes:
@@ -401,4 +531,6 @@ components:
       type: apiKey
       in: header
       name: Authorization
-servers: []
+servers:
+  - url: 'https://api.ynu.edu.cn'
+    description: 服务地址
