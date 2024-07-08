@@ -1,5 +1,5 @@
 ---
-title: 接口文档
+title: rs
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -19,18 +19,7 @@ generator: "@tarslib/widdershins v4.0.23"
 
 ---
 
-# 接口文档
-
-Base URLs:
-
-* <a href="https://api.ynu.edu.cn">服务地址: https://api.ynu.edu.cn</a>
-
-# Authentication
-
-* API Key (apikey-header-Authorization)
-    - Parameter Name: **Authorization**, in: header. 
-
-# 人事-rs
+# 人事系统
 
 ## GET 教职工列表查询
 
@@ -501,34 +490,4 @@ GET /v1/rs/dm_gbzwjb
 |» MC|string|true|none|名称|none|
 |» LS|string|true|none|类属|none|
 |» DM|string|true|none|代码|none|
-
-## GET 获得apisix的token
-
-GET /gen_token
-
-过期时间为1天
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|key|query|string| 否 |none|
-
-> 返回示例
-
-> 成功
-
-```json
-"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJlZTI1OTMwYzk0NjI0YTU3ZmY1NzMwNzQ3YTUyZjc4NCIsImV4cCI6MTcxODc4NDYxM30.A0V-f99nss18twxOFdBTd1rkyVmoqpUN0HhIJ3cj_SI"
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-
-### 返回数据结构
-
-# 数据模型
 
