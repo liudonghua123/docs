@@ -33,7 +33,7 @@ paths:
                 '1':
                   summary: 成功示例
                   value: >-
-                    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJlZTI1OTMwYzk0NjI0YTU3ZmY1NzMwNzQ3YTUyZjc4NCIsImV4cCI6MTcxODc4NDYxM30.A0V-f99nss18twxOFdBTd1rkyVmoqpUN0HhIJ3cj_SI
+                    <you-generated-token>
       security:
         - apikey-header-Authorization: []
 #components:
